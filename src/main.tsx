@@ -6,7 +6,7 @@ import {
   Navigate
 } from "react-router-dom";
 
-import { Agreement } from './routes/Agreement';
+import { Agreement } from './components/Agreement';
 
 import './index.css'
 

@@ -1,0 +1,4 @@
+.agreement {
+  border: 2px solid var(--color-divider);
+  padding: var(--spacing);
+}
