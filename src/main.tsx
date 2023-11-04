@@ -1,10 +1,30 @@
-import React from 'react'
+import { StrictMode } from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Navigate
+} from "react-router-dom";
+
+import { Agreement } from './routes/Agreement';
+
 import './index.css'
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Navigate to="/give-consent" replace />,
+  },
+  {
+    path: "/give-consent",
+    element: <Agreement />
+  },
+]);
+
+const rootElement = document.getElementById('root');
+
+ReactDOM.createRoot(rootElement!).render(
+  <StrictMode>
+    <RouterProvider router={router} />
+  </StrictMode>,
 )
