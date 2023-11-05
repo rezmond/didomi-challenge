@@ -3,10 +3,11 @@ import { Consent, ConsentApi, FetchApi } from "@/types";
 export const createConsentApi = (fetchApi: FetchApi): ConsentApi => {
   const callFetchApi = async (input: RequestInfo | URL, init?: RequestInit) => {
     try {
-      const data = await fetchApi(input, init)
+      const response = await fetchApi(input, init)
+      const data = await response.json();
       return {
-        ok: data.ok,
-        data: await data.json(),
+        ok: response.ok,
+        data: response.ok ? data : new Error(data),
       }
     } catch (error) {
       return { ok: false, data: error }
