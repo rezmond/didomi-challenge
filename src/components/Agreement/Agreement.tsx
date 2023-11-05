@@ -53,8 +53,9 @@ export const Agreement: FC = () => {
                 type="text"
                 required
                 value={form.name}
+                InputLabelProps={{ required: false }}
                 onChange={handleFieldChange}
-              />
+                />
               <TextField
                 id="email"
                 name="email"
@@ -62,6 +63,7 @@ export const Agreement: FC = () => {
                 type="email"
                 required
                 value={form.email}
+                InputLabelProps={{ required: false }}
                 onChange={handleFieldChange}
               />
             </>
