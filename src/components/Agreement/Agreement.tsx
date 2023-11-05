@@ -42,7 +42,7 @@ export const Agreement: FC = () => {
 
   return (
     <Layout>
-      <form onSubmit={handleSubmit}>
+      <form aria-label="Agreement form" onSubmit={handleSubmit}>
         <AgreementLayout
           inputs={
             <>
