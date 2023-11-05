@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom';
 
 import { Agreement } from './components/Agreement';
+import { Consents } from './components/Consents';
 
 import './index.css';
 import { createConsentApi } from './services/consentApi';
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
   {
     path: '/give-consent',
     element: <Agreement />,
+  },
+  {
+    path: '/consents',
+    element: <Consents />,
   },
 ]);
 

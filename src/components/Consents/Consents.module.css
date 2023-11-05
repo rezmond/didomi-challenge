@@ -1,0 +1,7 @@
+.paginationUl > li:first-of-type {
+  margin-inline-end: auto;
+}
+
+.paginationUl > li:last-of-type {
+  margin-inline-start: auto;
+}
