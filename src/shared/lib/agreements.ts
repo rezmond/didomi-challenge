@@ -2,7 +2,6 @@ import { Consent } from '@/types';
 
 type Checkbox = {
   id: keyof Consent;
-  name?: string;
   label: string;
 };
 

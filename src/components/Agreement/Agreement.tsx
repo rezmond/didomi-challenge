@@ -74,14 +74,14 @@ export const Agreement: FC = () => {
           conditionsLabel="I agree to:"
           conditions={
             <List disablePadding>
-              {conditions.map(({ id, name, label }) => (
+              {conditions.map(({ id, label }) => (
                 <ListItem disablePadding key={id}>
                   <FormControlLabel
                     label={label}
                     control={
                       <Checkbox
                         id={id}
-                        name={name ?? id}
+                        name={id}
                         checked={Boolean(form[id])}
                         onChange={handleFieldChange}
                       />
