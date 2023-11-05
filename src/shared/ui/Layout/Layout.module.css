@@ -1,0 +1,20 @@
+.navigation {
+  background-color: #F5F5F5;
+}
+
+.listItem + .listItem {
+  margin-top: calc(2 * var(--spacing));
+}
+
+.navLink:global(.active),
+.navLink:global(.active):hover {
+  background-color: var(--color-primary-main);
+  color: var(--color-primary-contrast-text);
+  font-weight: bold;
+}
+
+.content {
+  flex-grow: 1;
+  border: 1px solid var(--color-divider);
+  padding: calc(2 * var(--spacing));
+}
