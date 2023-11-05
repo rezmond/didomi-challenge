@@ -1,10 +1,10 @@
 import { FC, ReactElement, ReactNode } from 'react';
 
+import { FormGroup } from '@/shared/ui/FormGroup';
+import { FormHelperText } from '@/shared/ui/FormHelperText';
 import { Stack } from '@/shared/ui/Stack';
 
 import styles from './AgreementLayout.module.css';
-import { FormGroup } from '@/shared/ui/FormGroup';
-import { FormHelperText } from '@/shared/ui/FormHelperText';
 
 type AgreementLayoutProps = {
   inputs: ReactElement;

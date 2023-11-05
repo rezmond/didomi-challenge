@@ -1,20 +1,20 @@
 import { FC, useEffect, useState } from 'react';
 
 import { useConsentApi } from '@/shared/lib/consentApiContext';
+import { Consent } from '@/shared/types';
+import { Alert } from '@/shared/ui/Alert';
 import { Layout } from '@/shared/ui/Layout';
+import { Pagination } from '@/shared/ui/Pagination';
 import { Paper } from '@/shared/ui/Paper';
 import { Table } from '@/shared/ui/Table';
 import { TableBody } from '@/shared/ui/TableBody';
 import { TableCell } from '@/shared/ui/TableCell';
 import { TableContainer } from '@/shared/ui/TableContainer';
 import { TableHead } from '@/shared/ui/TableHead';
-import { Pagination } from '@/shared/ui/Pagination';
 import { TableRow } from '@/shared/ui/TableRow';
-import { Consent } from '@/shared/types';
-import { Alert } from '@/shared/ui/Alert';
 
-import styles from './Consents.module.css';
 import { ROWS_PER_PAGE, COLUMNS } from './Consents.constants';
+import styles from './Consents.module.css';
 import { columnToContent } from './Consents.utils';
 
 export const Consents: FC = () => {

@@ -1,9 +1,9 @@
-import { createConsentApi } from '@/services/consentApi';
-import { Consents } from './Consents';
+import { fireEvent } from '@testing-library/react';
 import { render } from '@/shared/lib/tests';
 import { Consent } from '@/shared/types';
+import { Consents } from './Consents';
 import { columnToContent } from './Consents.utils';
-import { fireEvent } from '@testing-library/react';
+import { createConsentApi } from '@/services/consentApi';
 
 const consentsMock: Consent[] = [
   {

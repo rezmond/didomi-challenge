@@ -1,6 +1,6 @@
 import { Consent, FetchApi } from '@/shared/types';
-import { FetchApiMockError } from './fetchApiMockError';
 import consentListSrc from './consentsList.json';
+import { FetchApiMockError } from './fetchApiMockError';
 
 const consentList = [...consentListSrc] as Consent[];
 

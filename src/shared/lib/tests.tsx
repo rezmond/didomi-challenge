@@ -1,11 +1,11 @@
-import { ConsentApi } from '@/shared/types';
-import { ConsentApiContext } from './consentApiContext';
 import {
   type RenderOptions as RenderOptionsBase,
   type RenderResult,
   render as renderBase,
 } from '@testing-library/react';
 import { FC, ReactElement, ReactNode } from 'react';
+import { ConsentApi } from '@/shared/types';
+import { ConsentApiContext } from './consentApiContext';
 
 type RenderOptions = Omit<RenderOptionsBase, 'queries'> & {
   consentApi: ConsentApi;

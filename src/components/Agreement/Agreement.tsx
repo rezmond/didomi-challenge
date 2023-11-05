@@ -1,15 +1,15 @@
 import { FC, FormEventHandler, useCallback, useState } from 'react';
 
-import { TextField } from '@/shared/ui/TextField';
-import { Layout } from '@/shared/ui/Layout';
-import { List } from '@/shared/ui/List';
-import { ListItem } from '@/shared/ui/ListItem';
+import { conditionIds, conditions } from '@/shared/lib/agreements';
+import { useConsentApi } from '@/shared/lib/consentApiContext';
+import type { GiveConsentDto } from '@/shared/types';
 import { Button } from '@/shared/ui/Button';
 import { Checkbox } from '@/shared/ui/Checkbox';
 import { FormControlLabel } from '@/shared/ui/FormControlLabel';
-import { useConsentApi } from '@/shared/lib/consentApiContext';
-import type { GiveConsentDto } from '@/shared/types';
-import { conditionIds, conditions } from '@/shared/lib/agreements';
+import { Layout } from '@/shared/ui/Layout';
+import { List } from '@/shared/ui/List';
+import { ListItem } from '@/shared/ui/ListItem';
+import { TextField } from '@/shared/ui/TextField';
 
 import { AgreementLayout } from './components/AgreementLayout';
 
