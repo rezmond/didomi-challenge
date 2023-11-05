@@ -28,5 +28,5 @@ export type GiveConsentDto = {
 
 export type ConsentApi = {
   giveConsent(form: GiveConsentDto): Promise<SuccessResponse | FailedResponse>;
-  getConsents(): Promise<SuccessResponse<Consent> | FailedResponse>;
+  getConsents(): Promise<SuccessResponse<Consent[]> | FailedResponse>;
 };
