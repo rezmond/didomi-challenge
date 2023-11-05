@@ -3,11 +3,12 @@ import { fireEvent } from '@testing-library/react';
 import { createConsentApi } from '@/shared/lib/consentApi';
 import { render } from '@/shared/lib/tests';
 import type { Consent } from '@/shared/lib/types';
-import { Agreement } from './Agreement';
+
+import { AgreementForm } from './AgreementForm';
 
 it('renders the Agreement form accessible', () => {
   const consentApiMock = createConsentApi(jest.fn());
-  const { getByRole } = render(<Agreement />, {
+  const { getByRole } = render(<AgreementForm />, {
     consentApi: consentApiMock,
   });
 
@@ -16,7 +17,7 @@ it('renders the Agreement form accessible', () => {
 
 it('enables the "give consent" button when at least one of the conditions is chosen', () => {
   const consentApiMock = createConsentApi(jest.fn());
-  const { getByRole } = render(<Agreement />, {
+  const { getByRole } = render(<AgreementForm />, {
     consentApi: consentApiMock,
   });
 
@@ -48,7 +49,7 @@ it('sends the form data on give consent clicked', () => {
     newsletter: true,
     statistics: false,
   };
-  const { getByRole } = render(<Agreement />, {
+  const { getByRole } = render(<AgreementForm />, {
     consentApi: consentApiMock,
   });
 
@@ -78,7 +79,7 @@ it('shows consent giving error message', async () => {
     json: jest.fn().mockResolvedValueOnce(errorMessage),
   });
   const consentApiMock = createConsentApi(fetchApiMock);
-  const { getByRole, findByText } = render(<Agreement />, {
+  const { getByRole, findByText } = render(<AgreementForm />, {
     consentApi: consentApiMock,
   });
 

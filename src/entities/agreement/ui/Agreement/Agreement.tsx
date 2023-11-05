@@ -1,22 +1,20 @@
-import { FC, ReactElement, ReactNode } from 'react';
+import type { FC, ReactElement, ReactNode } from 'react';
 
 import { FormGroup } from '@/shared/ui/FormGroup';
 import { FormHelperText } from '@/shared/ui/FormHelperText';
 import { Stack } from '@/shared/ui/Stack';
 
-import styles from './AgreementLayout.module.css';
+import styles from './Agreement.module.css';
 
-type AgreementLayoutProps = {
+type AgreementProps = {
   inputs: ReactElement;
-  conditionsLabel: string;
   conditions: ReactElement;
   errors?: ReactNode;
   actions: ReactNode;
 };
 
-export const AgreementLayout: FC<AgreementLayoutProps> = ({
+export const Agreement: FC<AgreementProps> = ({
   inputs,
-  conditionsLabel,
   conditions,
   errors,
   actions,
@@ -25,7 +23,7 @@ export const AgreementLayout: FC<AgreementLayoutProps> = ({
     <Stack direction="row" spacing={1}>
       {inputs}
     </Stack>
-    <p>{conditionsLabel}</p>
+    <p>I agree to:</p>
     <FormGroup className={styles.agreement}>{conditions}</FormGroup>
     {errors && <FormHelperText error>{errors}</FormHelperText>}
     {actions}
