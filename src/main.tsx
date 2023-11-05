@@ -1,32 +1,11 @@
 import { StrictMode } from 'react';
 import ReactDOM from 'react-dom/client';
-import {
-  createBrowserRouter,
-  RouterProvider,
-  Navigate,
-} from 'react-router-dom';
-
-import { Agreement } from './components/Agreement';
-import { Consents } from './components/Consents';
+import { RouterProvider } from 'react-router-dom';
 
 import { createConsentApi } from './services/consentApi';
 import { ConsentApiContext } from './shared/lib/consentApiContext';
 import { fetchApiMock } from './services/mocks/fetchApiMock';
-
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <Navigate to="/give-consent" replace />,
-  },
-  {
-    path: '/give-consent',
-    element: <Agreement />,
-  },
-  {
-    path: '/consents',
-    element: <Consents />,
-  },
-]);
+import { router } from './services/router';
 
 const consentApi = createConsentApi(fetchApiMock);
 
