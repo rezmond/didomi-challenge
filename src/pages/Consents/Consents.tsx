@@ -1,7 +1,7 @@
 import { FC, useEffect, useState } from 'react';
 
 import { useConsentApi } from '@/shared/lib/consentApiContext';
-import { Consent } from '@/shared/types';
+import { Consent } from '@/shared/lib/types';
 import { Alert } from '@/shared/ui/Alert';
 import { Layout } from '@/shared/ui/Layout';
 import { Pagination } from '@/shared/ui/Pagination';

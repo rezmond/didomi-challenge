@@ -4,7 +4,7 @@ import {
   render as renderBase,
 } from '@testing-library/react';
 import { FC, ReactElement, ReactNode } from 'react';
-import { ConsentApi } from '@/shared/types';
+import { ConsentApi } from '@/shared/lib/types';
 import { ConsentApiContext } from './consentApiContext';
 
 type RenderOptions = Omit<RenderOptionsBase, 'queries'> & {

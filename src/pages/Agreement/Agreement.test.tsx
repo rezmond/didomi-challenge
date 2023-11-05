@@ -2,7 +2,7 @@ import { fireEvent } from '@testing-library/react';
 
 import { createConsentApi } from '@/shared/lib/consentApi';
 import { render } from '@/shared/lib/tests';
-import type { Consent } from '@/shared/types';
+import type { Consent } from '@/shared/lib/types';
 import { Agreement } from './Agreement';
 
 it('renders the Agreement form accessible', () => {

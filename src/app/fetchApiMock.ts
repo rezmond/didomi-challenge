@@ -1,4 +1,4 @@
-import { Consent, FetchApi } from '@/shared/types';
+import { Consent, FetchApi } from '@/shared/lib/types';
 import consentListSrc from './consentsList.json';
 import { FetchApiMockError } from './fetchApiMockError';
 

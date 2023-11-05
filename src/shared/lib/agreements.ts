@@ -1,4 +1,4 @@
-import { Consent } from '@/shared/types';
+import { Consent } from '@/shared/lib/types';
 
 type Checkbox = {
   id: keyof Consent;
