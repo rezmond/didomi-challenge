@@ -9,7 +9,6 @@ import {
 import { Agreement } from './components/Agreement';
 import { Consents } from './components/Consents';
 
-import './index.css';
 import { createConsentApi } from './services/consentApi';
 import { ConsentApiContext } from './shared/lib/consentApiContext';
 import { fetchApiMock } from './services/mocks/fetchApiMock';
