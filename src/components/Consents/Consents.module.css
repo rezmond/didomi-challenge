@@ -5,3 +5,7 @@
 .paginationUl > li:last-of-type {
   margin-inline-start: auto;
 }
+
+.cell {
+  border-inline-end: 1px solid var(--color-divider);
+}

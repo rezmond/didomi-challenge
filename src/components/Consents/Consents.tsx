@@ -46,9 +46,15 @@ export const Consents: FC = () => {
           <Table>
             <TableHead>
               <TableRow>
-                <TableCell align="center">Name</TableCell>
-                <TableCell align="center">Email</TableCell>
-                <TableCell align="left">Consent given for</TableCell>
+                <TableCell className={styles.cell} align="center">
+                  Name
+                </TableCell>
+                <TableCell className={styles.cell} align="center">
+                  Email
+                </TableCell>
+                <TableCell className={styles.cell} align="left">
+                  Consent given for
+                </TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -60,7 +66,7 @@ export const Consents: FC = () => {
                 .map((row) => (
                   <TableRow key={row.name}>
                     {COLUMNS.map((column) => (
-                      <TableCell key={column.id}>
+                      <TableCell className={styles.cell} key={column.id}>
                         {columnToContent(column, row)}
                       </TableCell>
                     ))}
