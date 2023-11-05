@@ -1,1 +1,1 @@
-export class FetchApiMockError extends Error { }
+export class FetchApiMockError extends Error {}

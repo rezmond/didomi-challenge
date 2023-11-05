@@ -16,29 +16,32 @@ import { AgreementLayout } from './components/AgreementLayout';
 export const Agreement: FC = () => {
   const [form, setForm] = useState<GiveConsentDto>({
     name: '',
-    email: ''
+    email: '',
   });
-  const [error, setError] = useState<Error|null>(null);
+  const [error, setError] = useState<Error | null>(null);
   const consentApi = useConsentApi();
 
-  const handleFieldChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
-    const field = event.currentTarget;
-    if (field.type === 'checkbox') {
-      setForm(old => ({ ...old, [field.name]: field.checked }))
-      return;
-    }
-    setForm(old => ({ ...old, [field.name]: field.value }))
-  }, [])
+  const handleFieldChange = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      const field = event.currentTarget;
+      if (field.type === 'checkbox') {
+        setForm((old) => ({ ...old, [field.name]: field.checked }));
+        return;
+      }
+      setForm((old) => ({ ...old, [field.name]: field.value }));
+    },
+    [],
+  );
 
   const handleSubmit: FormEventHandler = async (e) => {
     e.preventDefault();
     const result = await consentApi.giveConsent(form);
     if (!result.ok) {
-      setError(result.data)
+      setError(result.data);
     }
-  }
+  };
 
-  const canSubmit = conditionIds.some(id => form[id])
+  const canSubmit = conditionIds.some((id) => form[id]);
 
   return (
     <Layout>
@@ -55,7 +58,7 @@ export const Agreement: FC = () => {
                 value={form.name}
                 InputLabelProps={{ required: false }}
                 onChange={handleFieldChange}
-                />
+              />
               <TextField
                 id="email"
                 name="email"
@@ -71,25 +74,31 @@ export const Agreement: FC = () => {
           conditionsLabel="I agree to:"
           conditions={
             <List disablePadding>
-              {
-                conditions.map(({ id, name, label }) =>
-                  <ListItem disablePadding key={id}>
-                    <FormControlLabel label={label} control={
-                      <Checkbox id={id} name={name ?? id} checked={Boolean(form[id])} onChange={handleFieldChange} />
-                    } />
-                  </ListItem>
-                )
-              }
+              {conditions.map(({ id, name, label }) => (
+                <ListItem disablePadding key={id}>
+                  <FormControlLabel
+                    label={label}
+                    control={
+                      <Checkbox
+                        id={id}
+                        name={name ?? id}
+                        checked={Boolean(form[id])}
+                        onChange={handleFieldChange}
+                      />
+                    }
+                  />
+                </ListItem>
+              ))}
             </List>
           }
           errors={error?.message}
           actions={
-            <Button type="submit" variant='contained' disabled={!canSubmit}>
+            <Button type="submit" variant="contained" disabled={!canSubmit}>
               Give consent
             </Button>
           }
         />
       </form>
     </Layout>
-  )
+  );
 };

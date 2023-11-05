@@ -1,1 +1,1 @@
-export * from './AgreementLayout'
+export * from './AgreementLayout';

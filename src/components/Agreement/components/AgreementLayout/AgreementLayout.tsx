@@ -14,15 +14,19 @@ type AgreementLayoutProps = {
   actions: ReactNode;
 };
 
-export const AgreementLayout: FC<AgreementLayoutProps> = ({ inputs, conditionsLabel, conditions, errors, actions }) => (
+export const AgreementLayout: FC<AgreementLayoutProps> = ({
+  inputs,
+  conditionsLabel,
+  conditions,
+  errors,
+  actions,
+}) => (
   <Stack direction="column" alignItems="center" spacing={2}>
     <Stack direction="row" spacing={1}>
       {inputs}
     </Stack>
     <p>{conditionsLabel}</p>
-    <FormGroup className={styles.agreement}>
-      {conditions}
-    </FormGroup>
+    <FormGroup className={styles.agreement}>{conditions}</FormGroup>
     {errors && <FormHelperText error>{errors}</FormHelperText>}
     {actions}
   </Stack>

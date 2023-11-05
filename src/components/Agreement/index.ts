@@ -1,1 +1,1 @@
-export * from './Agreement'
+export * from './Agreement';
