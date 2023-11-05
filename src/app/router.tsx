@@ -1,8 +1,8 @@
 import { Navigate } from 'react-router';
 import { createBrowserRouter } from 'react-router-dom';
 
-import { Agreement } from '@/components/Agreement';
-import { Consents } from '@/components/Consents';
+import { Agreement } from '@/pages/Agreement';
+import { Consents } from '@/pages/Consents';
 
 export const router = createBrowserRouter([
   {
