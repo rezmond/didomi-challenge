@@ -1,3 +1,7 @@
+.table th {
+  font-weight: bold;
+}
+
 .paginationUl > li:first-of-type {
   margin-inline-end: auto;
 }

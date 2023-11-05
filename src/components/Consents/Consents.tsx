@@ -43,7 +43,7 @@ export const Consents: FC = () => {
     <Layout>
       <Paper>
         <TableContainer>
-          <Table>
+          <Table className={styles.table}>
             <TableHead>
               <TableRow>
                 <TableCell className={styles.cell} align="center">
