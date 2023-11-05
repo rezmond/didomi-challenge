@@ -9,6 +9,9 @@ import {
 import { Agreement } from './components/Agreement';
 
 import './index.css'
+import { createConsentApi } from './services/consentApi';
+import { ConsentApiContext } from './shared/lib/consentApiContext';
+import { fetchApiMock } from './services/mocks/fetchApiMock';
 
 const router = createBrowserRouter([
   {
@@ -21,10 +24,13 @@ const router = createBrowserRouter([
   },
 ]);
 
-const rootElement = document.getElementById('root');
+const consentApi = createConsentApi(fetchApiMock);
 
+const rootElement = document.getElementById('root');
 ReactDOM.createRoot(rootElement!).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <ConsentApiContext.Provider value={consentApi}>
+      <RouterProvider router={router} />
+    </ConsentApiContext.Provider>
   </StrictMode>,
 )

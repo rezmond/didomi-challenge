@@ -1,0 +1,31 @@
+[{
+  "name": "Paul",
+  "email": "Paul@mail.com",
+  "newsletter": false,
+  "ads": false,
+  "statistics": true
+}, {
+  "name": "Arshak",
+  "email": "Arshak@mail.com",
+  "newsletter": false,
+  "ads": true,
+  "statistics": true
+}, {
+  "name": "Joy",
+  "email": "Joy@mail.com",
+  "newsletter": true,
+  "ads": false,
+  "statistics": false
+}, {
+  "name": "Sam",
+  "email": "Sam@mail.com",
+  "newsletter": true,
+  "ads": false,
+  "statistics": false
+}, {
+  "name": "Tor",
+  "email": "Tor@mail.com",
+  "newsletter": true,
+  "ads": true,
+  "statistics": false
+}]

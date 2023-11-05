@@ -1,4 +1,4 @@
-import { FC, useCallback, useState } from 'react';
+import { FC, FormEventHandler, useCallback, useState } from 'react';
 
 import { TextField } from '@/shared/ui/TextField';
 import { Layout } from '@/shared/ui/Layout';
@@ -7,12 +7,19 @@ import { ListItem } from '@/shared/ui/ListItem';
 import { Button } from '@/shared/ui/Button';
 import { Checkbox } from '@/shared/ui/Checkbox';
 import { FormControlLabel } from '@/shared/ui/FormControlLabel';
+import { useConsentApi } from '@/shared/lib/consentApiContext';
+import type { GiveConsentDto } from '@/types';
 
 import { conditionIds, conditions } from './agreements';
 import { AgreementLayout } from './components/AgreementLayout';
 
 export const Agreement: FC = () => {
-  const [form, setForm] = useState<Record<string, unknown>>({});
+  const [form, setForm] = useState<GiveConsentDto>({
+    name: '',
+    email: ''
+  });
+  const [error, setError] = useState<Error|null>(null);
+  const consentApi = useConsentApi();
 
   const handleFieldChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
     const field = event.currentTarget;
@@ -23,16 +30,25 @@ export const Agreement: FC = () => {
     setForm(old => ({ ...old, [field.name]: field.value }))
   }, [])
 
+  const handleSubmit: FormEventHandler = async (e) => {
+    e.preventDefault();
+    const result = await consentApi.giveConsent(form);
+    if (!result.ok) {
+      setError(result.data)
+    }
+  }
+
   const canSubmit = conditionIds.some(id => form[id])
 
   return (
     <Layout>
-      <form>
+      <form onSubmit={handleSubmit}>
         <AgreementLayout
           inputs={
             <>
               <TextField
                 id="name"
+                name="name"
                 label="Name"
                 type="text"
                 required
@@ -41,6 +57,7 @@ export const Agreement: FC = () => {
               />
               <TextField
                 id="email"
+                name="email"
                 label="Email address"
                 type="email"
                 required
@@ -63,6 +80,7 @@ export const Agreement: FC = () => {
               }
             </List>
           }
+          errors={error?.message}
           actions={
             <Button type="submit" variant='contained' disabled={!canSubmit}>
               Give consent
