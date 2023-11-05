@@ -2,9 +2,9 @@ import { StrictMode } from 'react';
 import ReactDOM from 'react-dom/client';
 import { RouterProvider } from 'react-router-dom';
 
+import { fetchApiMock } from './app/fetchApiMock';
 import { router } from './app/router';
-import { createConsentApi } from './services/consentApi';
-import { fetchApiMock } from './services/mocks/fetchApiMock';
+import { createConsentApi } from './shared/lib/consentApi';
 import { ConsentApiContext } from './shared/lib/consentApiContext';
 
 const consentApi = createConsentApi(fetchApiMock);

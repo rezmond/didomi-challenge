@@ -1,9 +1,9 @@
 import { fireEvent } from '@testing-library/react';
 
+import { createConsentApi } from '@/shared/lib/consentApi';
 import { render } from '@/shared/lib/tests';
 import type { Consent } from '@/shared/types';
 import { Agreement } from './Agreement';
-import { createConsentApi } from '@/services/consentApi';
 
 it('renders the Agreement form accessible', () => {
   const consentApiMock = createConsentApi(jest.fn());
