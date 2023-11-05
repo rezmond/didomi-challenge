@@ -9,8 +9,8 @@ import { Checkbox } from '@/shared/ui/Checkbox';
 import { FormControlLabel } from '@/shared/ui/FormControlLabel';
 import { useConsentApi } from '@/shared/lib/consentApiContext';
 import type { GiveConsentDto } from '@/types';
+import { conditionIds, conditions } from '@/shared/lib/agreements';
 
-import { conditionIds, conditions } from './agreements';
 import { AgreementLayout } from './components/AgreementLayout';
 
 export const Agreement: FC = () => {
