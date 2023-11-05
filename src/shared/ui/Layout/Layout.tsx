@@ -26,7 +26,7 @@ export const Layout: FC<LayoutProps> = ({ children }) => {
           },
         }}
       />
-      <Stack direction="row">
+      <Stack direction={{ xs: 'column', sm: 'row' }}>
         <nav className={styles.navigation} aria-label="pages">
           <List>
             <ListItem disablePadding className={styles.listItem}>
