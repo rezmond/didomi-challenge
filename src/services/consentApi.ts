@@ -1,4 +1,4 @@
-import { Consent, ConsentApi, FetchApi } from '@/types';
+import { Consent, ConsentApi, FetchApi } from '@/shared/types';
 
 export const createConsentApi = (fetchApi: FetchApi): ConsentApi => {
   const callFetchApi = async (input: RequestInfo | URL, init?: RequestInit) => {

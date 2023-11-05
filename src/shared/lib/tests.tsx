@@ -1,4 +1,4 @@
-import { ConsentApi } from '@/types';
+import { ConsentApi } from '@/shared/types';
 import { ConsentApiContext } from './consentApiContext';
 import {
   type RenderOptions as RenderOptionsBase,

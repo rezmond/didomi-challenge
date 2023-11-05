@@ -1,7 +1,7 @@
 import { createConsentApi } from '@/services/consentApi';
 import { Consents } from './Consents';
 import { render } from '@/shared/lib/tests';
-import { Consent } from '@/types';
+import { Consent } from '@/shared/types';
 import { columnToContent } from './Consents.utils';
 import { fireEvent } from '@testing-library/react';
 

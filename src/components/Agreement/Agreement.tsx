@@ -8,7 +8,7 @@ import { Button } from '@/shared/ui/Button';
 import { Checkbox } from '@/shared/ui/Checkbox';
 import { FormControlLabel } from '@/shared/ui/FormControlLabel';
 import { useConsentApi } from '@/shared/lib/consentApiContext';
-import type { GiveConsentDto } from '@/types';
+import type { GiveConsentDto } from '@/shared/types';
 import { conditionIds, conditions } from '@/shared/lib/agreements';
 
 import { AgreementLayout } from './components/AgreementLayout';

@@ -1,5 +1,5 @@
 import { createContext, useContext } from 'react';
-import type { ConsentApi } from '../../types';
+import type { ConsentApi } from '../types';
 
 export const ConsentApiContext = createContext<ConsentApi>({
   getConsents: () =>

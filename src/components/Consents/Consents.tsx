@@ -10,7 +10,7 @@ import { TableContainer } from '@/shared/ui/TableContainer';
 import { TableHead } from '@/shared/ui/TableHead';
 import { Pagination } from '@/shared/ui/Pagination';
 import { TableRow } from '@/shared/ui/TableRow';
-import { Consent } from '@/types';
+import { Consent } from '@/shared/types';
 import { Alert } from '@/shared/ui/Alert';
 
 import styles from './Consents.module.css';
