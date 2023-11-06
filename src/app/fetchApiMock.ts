@@ -10,6 +10,12 @@ const toSuccessResponse = (data: unknown): Promise<Response> =>
     json: () => Promise.resolve(data),
   } as Response);
 
+/**
+ * It works only for predefined endpoints and throws error for others.
+ * @param input URL of the target page.
+ * @param init options of request. If not provided the function throws exception.
+ * @returns mocked response
+ */
 export const fetchApiMock: FetchApi = (input, init) => {
   if (input !== '/consents') {
     throw new FetchApiMockError(`Unexpected fetch input "${input}"`);

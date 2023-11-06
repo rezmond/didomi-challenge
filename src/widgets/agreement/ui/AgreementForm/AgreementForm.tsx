@@ -58,6 +58,7 @@ export const AgreementForm: FC<AgreementFormProps> = ({ onGaveConsent }) => {
               type="text"
               required
               value={form.name}
+              /* just to hide the "*" in placeholder */
               InputLabelProps={{ required: false }}
               onChange={handleFieldChange}
             />
@@ -68,6 +69,7 @@ export const AgreementForm: FC<AgreementFormProps> = ({ onGaveConsent }) => {
               type="email"
               required
               value={form.email}
+              /* just to hide the "*" in placeholder */
               InputLabelProps={{ required: false }}
               onChange={handleFieldChange}
             />
