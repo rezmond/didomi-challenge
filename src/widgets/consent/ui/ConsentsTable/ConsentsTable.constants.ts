@@ -1,4 +1,4 @@
-import { Column } from './Consents.types';
+import { Column } from './ConsentsTable.types';
 
 export const COLUMNS: Column[] = [
   { id: 'name', label: 'Name' },

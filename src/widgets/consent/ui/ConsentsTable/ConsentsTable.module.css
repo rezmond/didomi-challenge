@@ -2,11 +2,11 @@
   font-weight: bold;
 }
 
-.paginationUl > li:first-of-type {
+.paginationUl>li:first-of-type {
   margin-inline-end: auto;
 }
 
-.paginationUl > li:last-of-type {
+.paginationUl>li:last-of-type {
   margin-inline-start: auto;
 }
 

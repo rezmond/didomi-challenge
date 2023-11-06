@@ -2,7 +2,7 @@ import { conditionIds } from '@/shared/lib/agreements';
 import { conditionIdToLabel } from '@/shared/lib/agreements';
 import type { Consent } from '@/shared/lib/types';
 
-import type { Column } from './Consents.types';
+import { Column } from './ConsentsTable.types';
 
 export const columnToContent = (column: Column, row: Consent) => {
   if (column.id === 'email' || column.id === 'name') {
