@@ -11,7 +11,11 @@ import { List } from '@/shared/ui/List';
 import { ListItem } from '@/shared/ui/ListItem';
 import { TextField } from '@/shared/ui/TextField';
 
-export const AgreementForm: FC = () => {
+type AgreementFormProps = {
+  onGaveConsent: () => void;
+};
+
+export const AgreementForm: FC<AgreementFormProps> = ({ onGaveConsent }) => {
   const [form, setForm] = useState<GiveConsentDto>({
     name: '',
     email: '',
@@ -37,6 +41,7 @@ export const AgreementForm: FC = () => {
     if (!result.ok) {
       setError(result.data);
     }
+    onGaveConsent();
   };
 
   const canSubmit = conditionIds.some((id) => form[id]);

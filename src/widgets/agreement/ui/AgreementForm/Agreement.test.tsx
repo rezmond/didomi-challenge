@@ -1,25 +1,33 @@
-import { fireEvent } from '@testing-library/react';
+import { fireEvent, waitFor } from '@testing-library/react';
 
 import { createConsentApi } from '@/shared/lib/consentApi';
 import { render } from '@/shared/lib/tests';
-import type { Consent } from '@/shared/lib/types';
+import type { Consent, ConsentApi } from '@/shared/lib/types';
 
 import { AgreementForm } from './AgreementForm';
 
+const renderAgreementForm = (consentApi: ConsentApi) => {
+  const onGaveConsentMock = jest.fn();
+  const utils = render(<AgreementForm onGaveConsent={onGaveConsentMock} />, {
+    consentApi,
+  });
+
+  return {
+    ...utils,
+    onGaveConsentMock,
+  };
+};
+
 it('renders the Agreement form accessible', () => {
   const consentApiMock = createConsentApi(jest.fn());
-  const { getByRole } = render(<AgreementForm />, {
-    consentApi: consentApiMock,
-  });
+  const { getByRole } = renderAgreementForm(consentApiMock);
 
   expect(getByRole('form')).toBeInTheDocument();
 });
 
 it('enables the "give consent" button when at least one of the conditions is chosen', () => {
   const consentApiMock = createConsentApi(jest.fn());
-  const { getByRole } = render(<AgreementForm />, {
-    consentApi: consentApiMock,
-  });
+  const { getByRole } = renderAgreementForm(consentApiMock);
 
   expect(getByRole('button', { name: /give consent/i })).toBeDisabled();
 
@@ -36,7 +44,7 @@ it('enables the "give consent" button when at least one of the conditions is cho
   expect(getByRole('button', { name: /give consent/i })).toBeDisabled();
 });
 
-it('sends the form data on give consent clicked', () => {
+it('sends the form data and redirect on give consent clicked', async () => {
   const fetchApiMock = jest.fn().mockResolvedValueOnce({
     ok: true,
     json: jest.fn().mockReturnValue(null),
@@ -49,9 +57,7 @@ it('sends the form data on give consent clicked', () => {
     newsletter: true,
     statistics: false,
   };
-  const { getByRole } = render(<AgreementForm />, {
-    consentApi: consentApiMock,
-  });
+  const { getByRole, onGaveConsentMock } = renderAgreementForm(consentApiMock);
 
   fireEvent.input(getByRole('textbox', { name: /name/i }), {
     target: { value: testData.name },
@@ -70,6 +76,10 @@ it('sends the form data on give consent clicked', () => {
       body: JSON.stringify(testData),
     }),
   );
+
+  await waitFor(() => {
+    expect(onGaveConsentMock).toHaveBeenCalledTimes(1);
+  });
 });
 
 it('shows consent giving error message', async () => {
@@ -79,9 +89,7 @@ it('shows consent giving error message', async () => {
     json: jest.fn().mockResolvedValueOnce(errorMessage),
   });
   const consentApiMock = createConsentApi(fetchApiMock);
-  const { getByRole, findByText } = render(<AgreementForm />, {
-    consentApi: consentApiMock,
-  });
+  const { getByRole, findByText } = renderAgreementForm(consentApiMock);
 
   fireEvent.input(getByRole('textbox', { name: /name/i }), {
     target: { value: 'test name' },
