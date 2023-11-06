@@ -8,7 +8,7 @@ const toSuccessResponse = (data: unknown): Promise<Response> =>
   Promise.resolve({
     ok: true,
     json: () => Promise.resolve(data),
-  } as unknown as Response);
+  } as Response);
 
 export const fetchApiMock: FetchApi = (input, init) => {
   if (input !== '/consents') {
