@@ -3,7 +3,7 @@ import { Consent, ConsentApi, FetchApi } from '@/shared/lib/types';
 /**
  * Encapsulates work with a server
  */
-export const createConsentApi = (fetchApi: FetchApi): ConsentApi => {
+export const createApi = (fetchApi: FetchApi): ConsentApi => {
   const callFetchApi = async (input: RequestInfo | URL, init?: RequestInit) => {
     try {
       const response = await fetchApi(input, init);

@@ -4,7 +4,7 @@ import { RouterProvider } from 'react-router-dom';
 
 import { fetchApiMock } from './app/fetchApiMock';
 import { router } from './app/router';
-import { createConsentApi } from './shared/lib/consentApi';
+import { createConsentApi } from './features/consent';
 import { ConsentApiContext } from './shared/lib/consentApiContext';
 
 const consentApi = createConsentApi(fetchApiMock);

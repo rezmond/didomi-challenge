@@ -1,6 +1,6 @@
 import { fireEvent, waitFor } from '@testing-library/react';
 
-import { createConsentApi } from '@/shared/lib/consentApi';
+import { createConsentApi } from '@/features/consent';
 import { render } from '@/shared/lib/tests';
 import type { Consent, ConsentApi } from '@/shared/lib/types';
 
