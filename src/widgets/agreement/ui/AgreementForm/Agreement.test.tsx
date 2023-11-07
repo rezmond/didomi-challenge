@@ -1,16 +1,18 @@
 import { fireEvent, waitFor } from '@testing-library/react';
 
-import { createConsentApi } from '@/features/consent';
-import { render } from '@/shared/lib/tests';
+import { createConsentApi, renderWithConsent } from '@/features/consent';
 import type { Consent, ConsentApi } from '@/shared/lib/types';
 
 import { AgreementForm } from './AgreementForm';
 
 const renderAgreementForm = (consentApi: ConsentApi) => {
   const onGaveConsentMock = jest.fn();
-  const utils = render(<AgreementForm onGaveConsent={onGaveConsentMock} />, {
-    consentApi,
-  });
+  const utils = renderWithConsent(
+    <AgreementForm onGaveConsent={onGaveConsentMock} />,
+    {
+      consentApi,
+    },
+  );
 
   return {
     ...utils,

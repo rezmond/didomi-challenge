@@ -3,9 +3,10 @@ import {
   type RenderResult,
   render as renderBase,
 } from '@testing-library/react';
-import { FC, ReactElement, ReactNode } from 'react';
+import type { FC, ReactElement, ReactNode } from 'react';
+
+import { ConsentApiContext } from '@/features/consent';
 import { ConsentApi } from '@/shared/lib/types';
-import { ConsentApiContext } from './consentApiContext';
 
 type RenderOptions = Omit<RenderOptionsBase, 'queries'> & {
   consentApi: ConsentApi;

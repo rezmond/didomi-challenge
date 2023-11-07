@@ -1,6 +1,5 @@
 import { fireEvent } from '@testing-library/react';
-import { createConsentApi } from '@/features/consent';
-import { render } from '@/shared/lib/tests';
+import { createConsentApi, renderWithConsent } from '@/features/consent';
 import { Consent } from '@/shared/lib/types';
 
 import { ConsentsTable } from './ConsentsTable';
@@ -64,7 +63,7 @@ it.each`
 
 it('shows the second page by click to 2', async () => {
   const consentApiMock = createConsentApi(createFetchApiMock(consentsMock));
-  const { getByRole, getByText, queryByText, findByText } = render(
+  const { getByRole, getByText, queryByText, findByText } = renderWithConsent(
     <ConsentsTable />,
     {
       consentApi: consentApiMock,
@@ -88,7 +87,7 @@ it('shows the second page by click to 2', async () => {
 
 it('can go forward and back', async () => {
   const consentApiMock = createConsentApi(createFetchApiMock(consentsMock));
-  const { getByRole, getByText, queryByText, findByText } = render(
+  const { getByRole, getByText, queryByText, findByText } = renderWithConsent(
     <ConsentsTable />,
     {
       consentApi: consentApiMock,
@@ -126,7 +125,7 @@ it('shows consents getting error message', async () => {
       json: jest.fn().mockReturnValue(errorMessage),
     }),
   );
-  const { findByText } = render(<ConsentsTable />, {
+  const { findByText } = renderWithConsent(<ConsentsTable />, {
     consentApi: consentApiMock,
   });
 
