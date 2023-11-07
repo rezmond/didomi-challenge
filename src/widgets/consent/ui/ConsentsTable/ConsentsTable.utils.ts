@@ -1,5 +1,4 @@
-import { conditionIds } from '@/shared/lib/agreements';
-import { conditionIdToLabel } from '@/shared/lib/agreements';
+import { conditionIdToLabel, conditionIds } from '@/entities/agreement';
 import type { Consent } from '@/shared/lib/types';
 
 import { Column } from './ConsentsTable.types';

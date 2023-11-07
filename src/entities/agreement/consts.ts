@@ -1,4 +1,4 @@
-import { Consent } from '@/shared/lib/types';
+import type { Consent } from '@/shared/lib/types';
 
 type Checkbox = {
   id: keyof Consent;
@@ -21,6 +21,3 @@ export const conditions: Checkbox[] = [
 ];
 
 export const conditionIds = conditions.map(({ id }) => id);
-
-export const conditionIdToLabel = (id: keyof Consent): string =>
-  conditions.find((condition) => condition.id === id)!.label;

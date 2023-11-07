@@ -1,8 +1,7 @@
 import { type FC, type FormEventHandler, useCallback, useState } from 'react';
 
 import { useConsentApi } from '@/features/consent';
-import { Agreement } from '@/entities/agreement';
-import { conditionIds, conditions } from '@/shared/lib/agreements';
+import { Agreement, conditionIds, conditions } from '@/entities/agreement';
 import type { GiveConsentDto } from '@/shared/lib/types';
 import { Button } from '@/shared/ui/Button';
 import { Checkbox } from '@/shared/ui/Checkbox';
